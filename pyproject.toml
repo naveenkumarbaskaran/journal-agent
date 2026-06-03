@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "journal-agent-ai"
+version = "0.1.0"
+description = "AI-powered personal journaling: daily prompts, mood tracking, weekly reflections."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["journaling", "ai", "claude", "anthropic", "mood-tracking"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "anthropic>=0.40.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+journal-agent = "journal_agent.cli:main"
+
+[project.urls]
+Repository = "https://github.com/example/journal-agent-ai"
+
+[tool.hatch.build.targets.wheel]
+packages = ["journal_agent"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "UP", "B", "I"]
+ignore = ["E501"]
